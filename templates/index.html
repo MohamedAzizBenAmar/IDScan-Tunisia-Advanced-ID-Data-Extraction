@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<title>Upload or Capture Image</title>
+<style>
+body {
+background-color: #f8f9fa;
+}
+.container {
+margin-top: 50px;
+}
+.card {
+border: 1px solid #007bff;
+}
+.card-header {
+background-color: #007bff;
+color: white;
+}
+.btn-primary {
+background-color: #007bff;
+border-color: #007bff;
+}
+.btn-primary:hover {
+background-color: #0056b3;
+border-color: #004085;
+}
+.hidden {
+display: none;
+}
+video, canvas {
+width: 100%;
+height: auto;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-8">
+<div class="card">
+<div class="card-header text-center">
+<h1>Upload or Capture CIN</h1>
+</div>
+<div class="card-body">
+<form method="POST" action="/upload" enctype="multipart/form-data">
+<div class="form-group">
+<label for="file1">Choose Face image</label>
+<input type="file" class="form-control-file" id="file1" name="file1">
+</div>
+<div class="form-group">
+<label for="file2">Choose Verso image</label>
+<input type="file" class="form-control-file" id="file2" name="file2">
+</div>
+<div class="form-group text-center">
+<button type="button" class="btn btn-primary" onclick="startWebcam(1)">Capture Face image</button>
+<button type="button" class="btn btn-primary" onclick="startWebcam(2)">Capture Verso image</button>
+</div>
+<div class="form-group hidden" id="webcam-container">
+<video id="webcam" autoplay></video>
+<canvas id="canvas" class="hidden"></canvas>
+<button type="button" class="btn btn-primary" onclick="captureImage()">Capture</button>
+<button type="button" class="btn btn-secondary" onclick="stopWebcam()">Cancel</button>
+</div>
+<div class="form-group text-center">
+<input type="submit" class="btn btn-primary" value="Upload">
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+let i = 0;
+let currentImageInput = null;
+function startWebcam(imageNumber) {
+currentImageInput = document.getElementById('file' + imageNumber);
+document.getElementById('webcam-container').classList.remove('hidden');
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(stream => {
+document.getElementById('webcam').srcObject = stream;
+})
+.catch(err => console.error('Error accessing webcam: ' + err));
+}
+function stopWebcam() {
+let stream = document.getElementById('webcam').srcObject;
+let tracks = stream.getTracks();
+tracks.forEach(track => track.stop());
+document.getElementById('webcam').srcObject = null;
+document.getElementById('webcam-container').classList.add('hidden');
+}
+function captureImage() {
+let video = document.getElementById('webcam');
+let canvas = document.getElementById('canvas');
+canvas.width = video.videoWidth;
+canvas.height = video.videoHeight;
+canvas.getContext('2d').drawImage(video, 0, 0);
+canvas.toBlob(blob => {
+i=i+1;
+let file = new File([blob], 'captured_image' + i + '.png', { type: 'image/png' });
+let container = new DataTransfer();
+container.items.add(file);
+currentImageInput.files = container.files;
+});
+stopWebcam();
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

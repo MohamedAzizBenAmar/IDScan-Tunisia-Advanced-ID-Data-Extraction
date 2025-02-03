@@ -1,0 +1,32 @@
+# 📌 Ignorer les répertoires de l'environnement virtuel
+venv/
+.env/
+
+# 📌 Ignorer les fichiers temporaires de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📌 Ignorer les fichiers Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# 📌 Ignorer les fichiers de configuration des IDE
+.idea/
+.vscode/
+
+# 📌 Ignorer les modèles lourds et fichiers de sortie
+*.pt
+*.h5
+*.onnx
+*.pb
+
+# 📌 Ignorer les répertoires et fichiers d'upload temporaire
+uploads/
+
+# 📌 Ignorer les fichiers de logs
+*.log
+
+# 📌 Ignorer les fichiers système
+.DS_Store
+Thumbs.db
