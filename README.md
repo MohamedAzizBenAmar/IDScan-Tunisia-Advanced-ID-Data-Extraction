@@ -1,72 +1,67 @@
-Project: IDScan-Tunisia Advanced National ID Data Extraction
-Objective
-Develop an automated solution to extract data from Tunisian National Identity Cards (CIN) using advanced image processing and optical character recognition (OCR) techniques.
+# IDScan-Tunisia: Advanced National ID Data Extraction
 
-Components
-Image Preprocessing
-Image Acquisition: Using high-resolution cameras or scanners.
-Image Enhancement: Filtering to improve image quality.
-Perspective Correction: Fixing geometric distortions.
-Optical Character Recognition (OCR)
-Text Detection: Identifying text areas.
-Text Extraction: Converting text to a digital format (Tesseract, EasyOCR).
-Post-Processing: Cleaning the extracted data.
-Information Extraction
-Field Identification: Defining relevant fields (name, surname, CIN number, etc.).
-Data Structuring: Organizing the extracted information into a structured format (JSON).
-User Interface
-Web/GUI Application: An intuitive interface for viewing images and extracted data.
-Exporting: Exporting data in CSV, Excel, or JSON formats.
-Technologies Used
-Language: Python
-OCR: Tesseract, EasyOCR
-Image Processing: OpenCV, PIL
-Web Development: Flask
-Storage: JSON files
-Conclusion
-IDScan-Tunisia aims to provide a reliable and efficient solution for the automated extraction of information from Tunisian CINs, with high accuracy and a user-friendly interface.
+## 📌 Objectif
+Développer une solution automatisée pour extraire les données des Cartes d'Identité Nationales Tunisiennes (CIN) en utilisant le traitement d'image avancé et la reconnaissance optique de caractères (OCR).
 
-Here's a translated description of your project along with the steps to run it:
+---
 
-Project: IDScan-Tunisia Advanced National ID Data Extraction
-Objective
-Develop an automated solution to extract data from Tunisian National Identity Cards (CIN) using advanced image processing and optical character recognition (OCR) techniques.
+## 🛠️ Composants du Projet
 
-Components
-Image Preprocessing
-Image Acquisition: Using high-resolution cameras or scanners.
-Image Enhancement: Filtering to improve image quality.
-Perspective Correction: Fixing geometric distortions.
-Optical Character Recognition (OCR)
-Text Detection: Identifying text areas.
-Text Extraction: Converting text to a digital format (Tesseract, EasyOCR).
-Post-Processing: Cleaning the extracted data.
-Information Extraction
-Field Identification: Defining relevant fields (name, surname, CIN number, etc.).
-Data Structuring: Organizing the extracted information into a structured format (JSON).
-User Interface
-Web/GUI Application: An intuitive interface for viewing images and extracted data.
-Exporting: Exporting data in CSV, Excel, or JSON formats.
-Technologies Used
-Language: Python
-OCR: Tesseract, EasyOCR
-Image Processing: OpenCV, PIL
-Web Development: Flask
-Storage: JSON files
-Conclusion
-IDScan-Tunisia aims to provide a reliable and efficient solution for the automated extraction of information from Tunisian CINs, with high accuracy and a user-friendly interface.
+### 🔹 1. Prétraitement d'Image
+- **Acquisition d'Image** : Utilisation de caméras haute résolution ou de scanners.
+- **Amélioration de l'Image** : Application de filtres pour améliorer la qualité.
+- **Correction de Perspective** : Correction des distorsions géométriques.
 
-Steps to Run the Project:
-1-Clone the repository:
+### 🔹 2. Reconnaissance Optique de Caractères (OCR)
+- **Détection de Texte** : Identification des zones contenant du texte.
+- **Extraction de Texte** : Conversion du texte en format numérique (Tesseract, EasyOCR).
+- **Post-Traitement** : Nettoyage et correction des données extraites.
+
+### 🔹 3. Extraction d'Informations
+- **Identification des Champs** : Détection des informations clés (Nom, Prénom, CIN, etc.).
+- **Structuration des Données** : Organisation des données extraites en format JSON.
+
+### 🔹 4. Interface Utilisateur
+- **Application Web/GUI** : Interface intuitive pour visualiser les images et les données extraites.
+- **Exportation des Données** : Export en CSV, Excel ou JSON.
+
+---
+
+## 🏗️ Technologies Utilisées
+| Technologie  | Utilisation  |
+|-------------|-------------|
+| **Python** | Langage principal |
+| **Tesseract, EasyOCR** | OCR |
+| **OpenCV, PIL** | Traitement d'images |
+| **Flask** | Développement Web |
+| **JSON Files** | Stockage des données |
+
+---
+
+## 🚀 Comment Exécuter le Projet ?
+
+### 1️⃣ Cloner le dépôt
+```bash
 git clone https://github.com/MohamedAzizBenAmar/IDScan-Tunisia-Advanced-ID-Data-Extraction.git
-2-Navigate to the project directory:
+```
+### 2️⃣ Aller dans le répertoire du projet
+```bash
 cd IDScan-Tunisia-Advanced-ID-Data-Extraction
-3-Set up a virtual environment:
+```
+### 3️⃣ Set up a virtual environment:
+```bash
 python -m venv venv
-4-Activate the virtual environment:
+```
+### 4️⃣ Activate the virtual environment:
+```bash
 venv\Scripts\activate
-5-Install the required dependencies:
+```
+### 5️⃣Install the required dependencies:
+```bash
 pip install -r requirements.txt
-6-Run the application: To start the web application, use:
+```
+### 6️⃣ Run the application: To start the web application, use:
+```bash
 python app.py
+```
 
